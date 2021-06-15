@@ -12,15 +12,28 @@ export default function App() {
     }
 
     function handleClick(e) {
-
-        setArr([...arr,e.target.value])
+        // handle two or more math symbol next to each other
+        if(!isNaN(arr[arr.length-1])) {
+            setArr([...arr,e.target.value])
+        } else if(isNaN(e.target.value)){
+            setArr([current])
+        } else {
+            setArr([...arr,e.target.value])
+        }
         // arr.push(e.target.value)
     }
+    let total = 0;
 
-    function total() {
-        return setCurrent(eval(current))
+    function handleTotal() {
+        if(!isNaN(arr[arr.length-1])) {
+            total = eval(current)
+            setCurrent(total)
+            setArr([total])
+        } else {
+            setCurrent(current)
+        }
     }
-    
+
     useEffect(() => {
         setCurrent(arr.join(''))
     },[arr])
@@ -38,7 +51,7 @@ export default function App() {
                 <td><button value='7' onClick={handleClick}>7</button></td>
                 <td><button value='8' onClick={handleClick}>8</button></td>
                 <td><button value='9' onClick={handleClick}>9</button></td>
-                <td><button value='*' onClick={handleClick}>x</button></td>
+                <td><button value='*' onClick={handleClick}>*</button></td>
             </tr>
             <tr>
                 <td><button value='4' onClick={handleClick}>4</button></td>
@@ -55,7 +68,7 @@ export default function App() {
             <tr>
                 <td colSpan='2'><button value='0' onClick={handleClick}>0</button></td>
                 <td><button value='.' onClick={handleClick}>.</button></td>
-                <td><button onClick={total}>=</button></td>
+                <td><button onClick={handleTotal}>=</button></td>
             </tr>
             </tbody>
         </table>
