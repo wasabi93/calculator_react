@@ -1,9 +1,17 @@
+
 * {
     box-sizing: border-box;
 }
 
+div {
+    width: 200px;
+    display: block;
+}
+
 table {
     border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
 }
 
 table tr:first-child td:first-child {
@@ -74,7 +82,7 @@ td {
     border-right: 1px solid black;
     border-top: 1px solid black;
     height: 40px;
-    width: 50px;
+    width: 25%;
     text-align: center;
     color: white;
     padding: 0;
@@ -83,8 +91,9 @@ td {
 .td-1 {
     text-align: end; 
     padding-right: 15px;
-    font-size: 35px;
     background-color: rgba(15, 15, 15, 0.9);
+    overflow: hidden;
+    font-size: 2.5vw;
 }
 
 button {
