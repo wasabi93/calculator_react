@@ -1,1 +1,1 @@
-Pratice code: create Calculator with react
+Practice code: create Calculator with react
